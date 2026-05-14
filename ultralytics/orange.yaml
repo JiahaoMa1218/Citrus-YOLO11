@@ -1,0 +1,11 @@
+# /root/autodl-tmp/ultralytics/orange.yaml
+
+path: /root/autodl-tmp/orange_dataset  # 数据集的绝对根目录
+train: images/train                    # 训练集图像路径 (相对于 path)
+val: images/val                        # 验证集图像路径 (相对于 path)
+
+# 类别设置
+nc: 2
+names:
+  0: orange
+  1: interferer
