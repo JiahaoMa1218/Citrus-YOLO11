@@ -1948,7 +1948,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from .conv import Conv, GhostConv, DWConv
 # ==============================================================================
-# 1. LLKFE 模块 (Lightweight Large-Kernel Feature Extraction)
+# 1. LLKFE  (Lightweight Large-Kernel Feature Extraction)
 # ==============================================================================
 class GhostBottleneck(nn.Module):
     """
@@ -1978,20 +1978,13 @@ class C3k2_Ghost(C3k2):
     def __init__(self, c1, c2, n=1, c3k=False, e=0.5, g=1, shortcut=True):
         super().__init__(c1, c2, n, c3k, e, g, shortcut)
         c_ = int(c2 * e)  # hidden channels
-        # 使用 GhostBottleneck 替换标准的 Bottleneck (默认 k=3)
         self.m = nn.Sequential(*(GhostBottleneck(c_, c_) for _ in range(n)))
 
 
 class LLKFE(C3k2_Ghost):
-    """
-    LLKFE (相当于原 C3k2_Ghost_Large):
-    使用大卷积核 (k=5) 的 Ghost 模块，扩大感受野以应对遮挡。
-    """
     def __init__(self, c1, c2, n=1, c3k=False, e=0.5, g=1, shortcut=True):
-        # 继承 C3k2_Ghost
         super().__init__(c1, c2, n, c3k, e, g, shortcut)
         c_ = int(c2 * e)  # hidden channels
-        # 核心修改：将内部 GhostBottleneck 的卷积核 k 强制设为 5
         self.m = nn.Sequential(*(GhostBottleneck(c_, c_, k=5) for _ in range(n)))
 # ==============================================================================
 # 2. CAMA (Content-Aware Multiscale Aggregation)
