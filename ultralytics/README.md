@@ -26,6 +26,11 @@ We have detailed the CAMA mechanism code in ultralytics/ultralytics/nn/modules/b
 Network Architecture
 The complete network architecture is defined in ultralytics/citrus_yolo11.yaml. We have added detailed comments to indicate the locations of these four modules and the overall data flow.
 
+Module Registration
+To ensure the newly added modules are correctly parsed by the YOLO framework, you must register them in ultralytics/ultralytics/nn/tasks.py.
+Import the modules at the top of tasks.py:
+from ultralytics.nn.modules.block import BiFPN_Add, CAMA
+
 Get Started
 
 Environment Setup
