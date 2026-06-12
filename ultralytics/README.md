@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 Dataset
 Orange Dataset (Our Dataset): The dataset features extreme occlusions, varying lighting conditions, and negative background samples. 
-Download Link (Zenodo DOI): https://doi.org/10.5281/zenodo.20173880
+Download Link (Zenodo DOI): https://doi.org/10.5281/zenodo.20657075
 
 Training & Testing
 
@@ -55,4 +55,4 @@ Citation & Data Availability
 If you find our paper, code, or dataset useful for your research, please consider citing our work. 
 
 Code DOI: https://doi.org/10.5281/zenodo.20184177
-Dataset DOI: https://doi.org/10.5281/zenodo.20173880
+Dataset DOI: https://doi.org/10.5281/zenodo.20657075
